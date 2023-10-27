@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1 id="text">Hello World!</h1>
+
+    <script>
+        $(document).ready(function() {
+            var colors = ["black", "blue", "green"];
+            var currentIndex = 0;
+
+            function changeColor() {
+                $("#text").css("color", colors[currentIndex]);
+                currentIndex = (currentIndex + 1) % colors.length;
+            }
+
+            setInterval(changeColor, 1000);
+        });
+    </script>
+</body>
+</html>

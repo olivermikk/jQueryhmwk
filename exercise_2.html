@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Office</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Smith</td>
+            <td>jsmith@sar.com</td>
+            <td>+30 210 1234567</td>
+            <td>PN 514</td>
+        </tr>
+        <tr>
+            <td>Maria</td>
+            <td>Carras</td>
+            <td>mcarras@jsu.edu</td>
+            <td>+30 210 7654321</td>
+            <td>PM 413</td>
+        </tr>
+        <tr>
+            <td>Helen</td>
+            <td>Antypas</td>
+            <td>hantypas@bdg.com</td>
+            <td>+30 2310 654321</td>
+            <td>PK 614</td>
+        </tr>
+        <tr>
+            <td>Afroditi</td>
+            <td>Makri</td>
+            <td>amakri@hughes.edu</td>
+            <td>+30 2310 123456</td>
+            <td>PJ 717</td>
+        </tr>
+    </table>
+    <br>
+    <button type="button" id="buttonNext">Highlight Next Row</button>
+    <button type="button" id="buttonClear">ClearHighligh</button>
+    
+
+    <style>
+        .highlight {
+            color: red;
+        }
+    </style>
+    
+    <script>
+        $(document).ready(function () {
+            var currentHighlight = null;
+
+            $("#buttonNext").click(function () {
+                if (currentHighlight) {
+                    currentHighlight.removeClass("highlight");
+                }
+
+                var rows = $("table tr");
+                if (currentHighlight === null) {
+                    currentHighlight = rows.eq(1);
+                } else {
+                    var currentIndex = rows.index(currentHighlight);
+                    currentHighlight = currentIndex === rows.length - 1 ? rows.eq(1) : rows.eq(currentIndex + 1);
+                }
+
+                currentHighlight.addClass("highlight");
+            });
+
+            $("#buttonClear").click(function () {
+                if (currentHighlight) {
+                    currentHighlight.removeClass("highlight");
+                    currentHighlight = null;
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

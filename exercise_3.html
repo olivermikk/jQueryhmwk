@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p id="message">placeholder</p>
+
+    <script>
+        $(document).ready(function () {
+            var today = new Date();
+            var dayOfWeek = today.getDay();
+
+            var messageDiv = $("#message");
+
+            if (dayOfWeek === 0) { // 0 corresponds to Sunday
+                messageDiv.text("It is Sunday!").css("color", "green");
+            } else {
+                messageDiv.text("It is not Sunday.").css("color", "blue");
+            }
+        });
+    </script>
+</body>
+</html>
